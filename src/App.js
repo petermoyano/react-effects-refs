@@ -40,17 +40,17 @@ function App() {
     return (<Card img={card.image} key={id} id={id} />)
   })
 
-  if(remainingCards === 0){
+  if(remainingCards === 46){
     alert("Error: no cards remaining!");
     clearTimeout(setIntervalID);
     setRemainingCards(52);
-    setRestart(Math.random());
+    setRestart(() => restart + 1);
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Draw a card, I dare you</h1>
+        <h1>Draw a card, I dare you and restart is {restart}</h1>
         <button onClick={drawCard}>Hit me!</button>
         <button onClick={stopDrawCard}>Stop draw</button>
         <div>{showCards}</div>
